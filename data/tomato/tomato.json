@@ -2,23 +2,23 @@
     {
         "type": "人气榜",
         "page_list": [
-            "https://fanqienovel.com/library/stat0/page_1?sort=hottes",
-            "https://fanqienovel.com/library/stat0/page_2?sort=hottes",
-            "https://fanqienovel.com/library/stat0/page_3?sort=hottes",
-            "https://fanqienovel.com/library/stat0/page_4?sort=hottes",
-            "https://fanqienovel.com/library/stat0/page_5?sort=hottes",
-            "https://fanqienovel.com/library/stat0/page_6?sort=hottes"
+            "https://fanqienovel.com/api/author/library/book_list/v0/?page_count=18&page_index=0&gender=-1&category_id=-1&creation_status=0&word_count=-1&sort=0",
+            "https://fanqienovel.com/api/author/library/book_list/v0/?page_count=18&page_index=1&gender=-1&category_id=-1&creation_status=0&word_count=-1&sort=0",
+            "https://fanqienovel.com/api/author/library/book_list/v0/?page_count=18&page_index=2&gender=-1&category_id=-1&creation_status=0&word_count=-1&sort=0",
+            "https://fanqienovel.com/api/author/library/book_list/v0/?page_count=18&page_index=3&gender=-1&category_id=-1&creation_status=0&word_count=-1&sort=0",
+            "https://fanqienovel.com/api/author/library/book_list/v0/?page_count=18&page_index=4&gender=-1&category_id=-1&creation_status=0&word_count=-1&sort=0",
+            "https://fanqienovel.com/api/author/library/book_list/v0/?page_count=18&page_index=5&gender=-1&category_id=-1&creation_status=0&word_count=-1&sort=0"
         ]
     },
     {
         "type": "字数榜",
         "page_list": [
-            "https://fanqienovel.com/library/stat0/page_1?sort=count",
-            "https://fanqienovel.com/library/stat0/page_2?sort=count",
-            "https://fanqienovel.com/library/stat0/page_3?sort=count",
-            "https://fanqienovel.com/library/stat0/page_4?sort=count",
-            "https://fanqienovel.com/library/stat0/page_5?sort=count",
-            "https://fanqienovel.com/library/stat0/page_6?sort=count"
+            "https://fanqienovel.com/api/author/library/book_list/v0/?page_count=18&page_index=0&gender=-1&category_id=-1&creation_status=0&word_count=-1&sort=2",
+            "https://fanqienovel.com/api/author/library/book_list/v0/?page_count=18&page_index=1&gender=-1&category_id=-1&creation_status=0&word_count=-1&sort=2",
+            "https://fanqienovel.com/api/author/library/book_list/v0/?page_count=18&page_index=2&gender=-1&category_id=-1&creation_status=0&word_count=-1&sort=2",
+            "https://fanqienovel.com/api/author/library/book_list/v0/?page_count=18&page_index=3&gender=-1&category_id=-1&creation_status=0&word_count=-1&sort=2",
+            "https://fanqienovel.com/api/author/library/book_list/v0/?page_count=18&page_index=4&gender=-1&category_id=-1&creation_status=0&word_count=-1&sort=2",
+            "https://fanqienovel.com/api/author/library/book_list/v0/?page_count=18&page_index=5&gender=-1&category_id=-1&creation_status=0&word_count=-1&sort=2"
         ]
     }
 ]
