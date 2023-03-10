@@ -39,6 +39,7 @@ class BaseSpider:
     """
     爬虫基类
     """
+
     def __init__(self):
         self.BASE_DIR = os.path.dirname(__file__)
         self.DATE_DIR = os.path.join(self.BASE_DIR, "data")
@@ -86,9 +87,8 @@ class BaseSpider:
         将初始化页码数据存入json
         :return:
         """
-        file_name = os.path.join(self.DATE_DIR, filename)
-        if os.path.exists(file_name):
-            with open(file_name, "r", encoding="utf-8") as f:
+        if os.path.exists(filename):
+            with open(filename, "r", encoding="utf-8") as f:
                 page_dict = json.loads(f.read())
                 return page_dict
         url_list = self.get_type_url_list()
@@ -98,7 +98,7 @@ class BaseSpider:
                 page_dict.append(
                     {"type": key, "page_list": [value % page for page in range(page_start, page_end)]}
                 )
-            with open(file_name, "w", encoding="utf-8") as f:
+            with open(filename, "w", encoding="utf-8") as f:
                 f.write(json.dumps(page_dict, indent=4, ensure_ascii=False))
                 return page_dict
 
@@ -119,8 +119,13 @@ class QiDianSpider(BaseSpider):
     2. 遍历该分类下小说列表
         2.1 解析存储
     """
-    def __init__(self):
+
+    def __init__(self, dirname="qidian"):
         super(QiDianSpider, self).__init__()
+        self.dirname = dirname
+        self.TD = os.path.join(self.DATE_DIR, self.dirname)
+        if not os.path.exists(self.TD):
+            os.mkdir(self.TD)
 
     @staticmethod
     def get_type_url_list():
@@ -142,19 +147,27 @@ class QiDianSpider(BaseSpider):
 
     def page_init(self, filename, page_start, page_end):
         """初始化起点json文件"""
+        filename = os.path.join(self.TD, filename)
         return super().page_init(filename, page_start, page_end)
 
     def run(self):
         """起点爬虫入口"""
 
         # 页码json初始化
-        self.page_init(filename="qidian.json", page_start=1, page_end=6)
+        page_list = self.page_init(filename="qidian.json", page_start=1, page_end=6)
+        for item in page_list:
+            print(item["type"], item["page_list"])
 
 
 class QQSpider(BaseSpider):
     """QQ阅读爬虫"""
-    def __init__(self):
+
+    def __init__(self, dirname="qq"):
         super(QQSpider, self).__init__()
+        self.dirname = dirname
+        self.TD = os.path.join(self.DATE_DIR, self.dirname)
+        if not os.path.exists(self.TD):
+            os.mkdir(self.TD)
 
     @staticmethod
     def get_type_url_list():
@@ -171,6 +184,7 @@ class QQSpider(BaseSpider):
 
     def page_init(self, filename, page_start, page_end):
         """初始化QQ阅读json文件"""
+        filename = os.path.join(self.TD, filename)
         return super().page_init(filename, page_start, page_end)
 
     def run(self):
@@ -180,8 +194,13 @@ class QQSpider(BaseSpider):
 
 class TomatoSpider(BaseSpider):
     """番茄爬虫"""
-    def __init__(self):
+
+    def __init__(self, dirname="tomato"):
         super(TomatoSpider, self).__init__()
+        self.dirname = dirname
+        self.TD = os.path.join(self.DATE_DIR, self.dirname)
+        if not os.path.exists(self.TD):
+            os.mkdir(self.TD)
 
     @staticmethod
     def get_type_url_list():
@@ -197,6 +216,7 @@ class TomatoSpider(BaseSpider):
         }
 
     def page_init(self, filename, page_start, page_end):
+        filename = os.path.join(self.TD, filename)
         return super().page_init(filename, page_start, page_end)
 
     def run(self):
