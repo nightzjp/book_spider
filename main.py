@@ -8,6 +8,7 @@
 """
 
 import os
+import json
 import requests
 from fake_useragent import UserAgent
 from bs4 import BeautifulSoup
@@ -40,7 +41,10 @@ class BaseSpider:
     """
     def __init__(self):
         self.BASE_DIR = os.path.dirname(__file__)
+        self.DATE_DIR = os.path.join(self.BASE_DIR, "data")
         self.session = requests.session()
+        if not os.path.exists(self.DATE_DIR):
+            os.mkdir(self.DATE_DIR)
 
     @staticmethod
     def get_random_user_agent():
@@ -77,12 +81,26 @@ class BaseSpider:
         """
         soup = BeautifulSoup(html, "html.parser")
 
-    def dict_init(self):
+    def page_init(self, filename, page_start, page_end):
         """
-        目录初始化
+        将初始化页码数据存入json
         :return:
         """
-        pass
+        file_name = os.path.join(self.DATE_DIR, filename)
+        if os.path.exists(file_name):
+            with open(file_name, "r", encoding="utf-8") as f:
+                page_dict = json.loads(f.read())
+                return page_dict
+        url_list = self.get_type_url_list()
+        if isinstance(url_list, dict):
+            page_dict = []
+            for key, value in url_list.items():
+                page_dict.append(
+                    {"type": key, "page_list": [value % page for page in range(page_start, page_end)]}
+                )
+            with open(file_name, "w", encoding="utf-8") as f:
+                f.write(json.dumps(page_dict, indent=4, ensure_ascii=False))
+                return page_dict
 
     def run(self):
         """
@@ -122,6 +140,16 @@ class QiDianSpider(BaseSpider):
             "推荐榜": "https://www.qidian.com/finish/orderId2-page%s/"
         }
 
+    def page_init(self, filename, page_start, page_end):
+        """初始化起点json文件"""
+        return super().page_init(filename, page_start, page_end)
+
+    def run(self):
+        """起点爬虫入口"""
+
+        # 页码json初始化
+        self.page_init(filename="qidian.json", page_start=1, page_end=6)
+
 
 class QQSpider(BaseSpider):
     """QQ阅读爬虫"""
@@ -140,6 +168,14 @@ class QQSpider(BaseSpider):
             "人气榜": "https://book.qq.com/book-cate/0-0-2-0-0-0-0-%s",
             "收藏榜": "https://book.qq.com/book-cate/0-0-2-0-0-0-1-%s"
         }
+
+    def page_init(self, filename, page_start, page_end):
+        """初始化QQ阅读json文件"""
+        return super().page_init(filename, page_start, page_end)
+
+    def run(self):
+        """QQ阅读爬虫入口"""
+        self.page_init(filename="qq.json", page_start=1, page_end=51)
 
 
 class TomatoSpider(BaseSpider):
@@ -160,6 +196,24 @@ class TomatoSpider(BaseSpider):
             "字数榜": "https://fanqienovel.com/library/stat0/page_%s?sort=count"
         }
 
+    def page_init(self, filename, page_start, page_end):
+        return super().page_init(filename, page_start, page_end)
+
+    def run(self):
+        """番茄爬虫入口"""
+        self.page_init(filename="tomato.json", page_start=1, page_end=7)
+
 
 if __name__ == '__main__':
+    # 起点
+    # qd = QiDianSpider()
+    # qd.run()
+
+    # QQ阅读
+    # qq = QQSpider()
+    # qq.run()
+
+    # 番茄
+    # t = TomatoSpider()
+    # t.run()
     pass

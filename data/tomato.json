@@ -1,0 +1,24 @@
+[
+    {
+        "type": "人气榜",
+        "page_list": [
+            "https://fanqienovel.com/library/stat0/page_1?sort=hottes",
+            "https://fanqienovel.com/library/stat0/page_2?sort=hottes",
+            "https://fanqienovel.com/library/stat0/page_3?sort=hottes",
+            "https://fanqienovel.com/library/stat0/page_4?sort=hottes",
+            "https://fanqienovel.com/library/stat0/page_5?sort=hottes",
+            "https://fanqienovel.com/library/stat0/page_6?sort=hottes"
+        ]
+    },
+    {
+        "type": "字数榜",
+        "page_list": [
+            "https://fanqienovel.com/library/stat0/page_1?sort=count",
+            "https://fanqienovel.com/library/stat0/page_2?sort=count",
+            "https://fanqienovel.com/library/stat0/page_3?sort=count",
+            "https://fanqienovel.com/library/stat0/page_4?sort=count",
+            "https://fanqienovel.com/library/stat0/page_5?sort=count",
+            "https://fanqienovel.com/library/stat0/page_6?sort=count"
+        ]
+    }
+]

@@ -1,0 +1,42 @@
+[
+    {
+        "type": "人气榜",
+        "page_list": [
+            "https://www.qidian.com/finish/page1/",
+            "https://www.qidian.com/finish/page2/",
+            "https://www.qidian.com/finish/page3/",
+            "https://www.qidian.com/finish/page4/",
+            "https://www.qidian.com/finish/page5/"
+        ]
+    },
+    {
+        "type": "收藏榜",
+        "page_list": [
+            "https://www.qidian.com/finish/orderId11-page1/",
+            "https://www.qidian.com/finish/orderId11-page2/",
+            "https://www.qidian.com/finish/orderId11-page3/",
+            "https://www.qidian.com/finish/orderId11-page4/",
+            "https://www.qidian.com/finish/orderId11-page5/"
+        ]
+    },
+    {
+        "type": "字数榜",
+        "page_list": [
+            "https://www.qidian.com/finish/orderId3-page1/",
+            "https://www.qidian.com/finish/orderId3-page2/",
+            "https://www.qidian.com/finish/orderId3-page3/",
+            "https://www.qidian.com/finish/orderId3-page4/",
+            "https://www.qidian.com/finish/orderId3-page5/"
+        ]
+    },
+    {
+        "type": "推荐榜",
+        "page_list": [
+            "https://www.qidian.com/finish/orderId2-page1/",
+            "https://www.qidian.com/finish/orderId2-page2/",
+            "https://www.qidian.com/finish/orderId2-page3/",
+            "https://www.qidian.com/finish/orderId2-page4/",
+            "https://www.qidian.com/finish/orderId2-page5/"
+        ]
+    }
+]
